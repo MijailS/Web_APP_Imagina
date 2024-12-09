@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+{% endblock %}
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+    <div class="contenido">
+        <h1 class="titulo text-center">Registro de usuario</h1>
+        <div class="section container">
+            <div class="row d-flex justify-content-center" style="margin: 5rem;">
+                <div class="card" style=" width: 600px; height: 550px; padding:20px">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'home' %}" class="btn btn-success float-right">Ir al Home</a> |
+                            <input type="submit" value="Registrar" class="btn btn-success float-right">
+                        </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

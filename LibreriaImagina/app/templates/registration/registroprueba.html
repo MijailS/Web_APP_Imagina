@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<form action="{% url 'registro' %}" method="post">
+    {% csrf_token %}
+
+    <label for="apellido">Rut:</label>
+    <input type="text" id="rut" name="rut">
+
+    <label for="apellido">Contraseña:</label>
+    <input type="text" id="contrasena" name="contrasena">
+    <!-- Agrega los demás campos del formulario -->
+    <button type="submit">Registrarse</button>
+</form>
+{% endblock %}
+

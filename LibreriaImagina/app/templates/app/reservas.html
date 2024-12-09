@@ -1,0 +1,121 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block js %}
+{% endblock %}
+{% block contenido %}
+
+<div class="contenido" style="margin: 50px;">
+  <h1 class="titulo text-center">Agendar hora</h1>
+  <div class="card" style="margin: 200px; margin-top:30px">
+    <form class="formReserva" action='' method="POST" style="padding: 30px;">
+      <fieldset>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate" data-length="10">
+                <label for="first_name">Nombre</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate" data-length="10">
+                <label for="last_name">Apellido</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="email" type="email" class="validate">
+                <label for="email">Correo</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="email" type="email" class="validate">
+                <label for="email">Telefono</label>
+              </div>
+              <div class="input-field col s4">
+                <input type="date" class="datepicker" for="date">
+              </div>
+              <div class="input-field col s4">
+                <select class="browser-default select-wrapper" for="service">
+                  <option value="" disabled selected>Tipo Servicio</option>
+                  <option value="1">Mantenimiento</option>
+                  <option value="2">Reparacion</option>
+                  <option value="3">Asesorias</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <a class="btn btn-primary" type="submit">Reservar hora</a>
+              <a class="btn btn-primary" href="{%url 'historial' %}">Historial de reservas</a>
+            </div>
+          </form>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var formReserva = document.querySelector('.formReserva');
+    var nombre = document.querySelector('#first_name');
+    var apellido = document.querySelector('#last_name');
+    var email = document.querySelector('#email');
+    var telefono = document.querySelector('#telefono');
+    var fecha = document.querySelector('#date');
+    var tipoServicio = document.querySelector('#service');
+
+    formReserva.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      if (!validateNombre(nombre.value)) {
+        alert('Por favor, ingresa un nombre válido');
+        return;
+      }
+      if (!validateApellido(apellido.value)) {
+        alert('Por favor, ingresa un apellido válido');
+        return;
+      }
+      if (!validateEmail(email.value)) {
+        alert('Por favor, ingresa un email válido');
+        return;
+      }
+      if (!validateTelefono(telefono.value)) {
+        alert('Por favor, ingresa un telefono válido');
+        return;
+      }
+      if (!validateFecha(fecha.value)) {
+        alert('Por favor, seleccione una fecha válida');
+        return;
+      }
+      if (!validateTipoServicio(tipoServicio)) {
+        alert('Por favor, seleccione una tipo de servicio');
+        return;
+      }
+
+      function validateNombre(nombre){
+        return nombre.trim() !== '';
+      }
+      function validateApellido(apellido){
+        return apellido.trim() !== '';
+      }
+      function validateApellido(apellido) {
+        return apellido.trim() !== '';
+      }
+      function validateEmail(email) {
+        var emailRegex = /^\S+@\S+\.\S+$/;
+        return emailRegex.test(email);
+      }
+      function validateTelefono(telefono) {
+        var telefonoRegex = /^\d{10}$/;
+        return telefonoRegex.test(telefono);
+      }
+      function validateFecha(fecha) {
+        return fecha !== '';
+      }
+      function validateTipoServicio(tipoServicio) {
+        return tipoServicio !== '';
+      }
+    });
+  });
+</script>
+
+{% endblock %}

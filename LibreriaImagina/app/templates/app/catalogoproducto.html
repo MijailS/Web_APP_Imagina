@@ -1,0 +1,58 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+
+{% block contenido %}
+
+
+  <!-- catalogo -->
+
+  {% load humanize %}
+
+  <!-- 
+
+ ID Libro - libro.0
+ ISBN - libro.1  
+ Título - libro.2
+ Valor - libro.3
+ Páginas - libro.4
+ Stock - libro.5
+ Imagen - libro.6
+ Autor - libro.7
+ Año de Edición - libro.8
+ Reseña - libro.9
+
+ -->
+
+<div class="col-4 row-4">
+  {% include 'app/carrito.html' %}
+</div>
+
+<div class="contenido" style="margin:5rem">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for libro in libros %}
+    <div class="col">
+      <div class="card h-100">
+        
+        <img src="{{ libro.6 }}" class="card-img-top" style="width: 300px; height: 320px; margin: auto;">
+        
+        <div class="card-body">
+          <h3 class="card-title text-center">{{ libro.2|title }}</h3>
+          <h3> {{ libro.7 | title }} </h3>
+          <h4> ${{ libro.3 | intcomma }}</h4>
+          <p class="card-text text-center" style="font-size: medium;"> {{ libro.9 }} </p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'agregar_producto' libro_id=libro.0 %}" class="btn btn-primary">Agregar a carrito</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+  
+{% endblock %}
+  
+

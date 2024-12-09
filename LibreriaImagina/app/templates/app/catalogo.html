@@ -1,0 +1,79 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+
+{% block contenido %}
+
+
+  <!-- catalogo -->
+
+  {% load humanize %}
+
+  <!-- 
+  <h1>Listado de libros</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>ID Libro</th>
+              <th>ISBN</th>
+              <th>Título</th>
+              <th>Valor</th>
+              <th>Páginas</th>
+              <th>Stock</th>
+              <th>Imagen</th>
+              <th>Autor</th>
+              <th>Año de Edición</th>
+              <th>Reseña</th>
+          </tr>
+      </thead> 
+      <tbody>
+          {% for libro in libros %}
+          <tr>
+              <td>{{ libro.0 }}</td>
+              <td>{{ libro.1 }}</td>
+              <td>{{ libro.2 }}</td>
+              <td>{{ libro.3 }}</td>
+              <td>{{ libro.4 }}</td>
+              <td>{{ libro.5 }}</td>
+              <td>{{ libro.6 }}</td>
+              <td>{{ libro.7 }}</td>
+              <td>{{ libro.8 }}</td>
+              <td>{{ libro.9 }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+ -->
+
+<div class="col-4 row-4">
+  {% include 'app/carrito.html' %}
+</div>
+
+<div class="contenido" style="margin:5rem">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for libro in libros %}
+    <div class="col">
+      <div class="card h-100">
+        
+        <img src="{{ libro.6 }}" class="card-img-top" style="width: 300px; height: 320px; margin: auto;">
+        
+        <div class="card-body">
+          <h3 class="card-title text-center">{{ libro.2|title }}</h3>
+          <h3> {{ libro.7 | title }} </h3>
+          <h4> ${{ libro.3 | intcomma }}</h4>
+          <p class="card-text text-center" style="font-size: medium;"> {{ libro.9 }} </p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'agregar_producto' libro_id=libro.0 %}" class="btn btn-primary">Agregar a carrito</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+  
+{% endblock %}
+  
+

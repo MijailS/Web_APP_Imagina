@@ -1,0 +1,56 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+{% load static %}
+
+<div class="col">
+  <div class="card carrito-card" style="margin:5rem; width: 900px; padding:5rem;">
+    <h1 class="carrito-title">Carrito de Compras</h1>
+    {% if total > 0 %}
+      <table class="carrito-table">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for libro_id, cantidad in carrito.items %}
+           
+              <tr class="carrito-item">
+                <td><img src="{{ libro_id }}" class="card-img-top" style="width: 200px; height: 220px; margin: auto;"></td>
+                
+                <td name="libro_id" data-id="{{ libro_id }}">{{ libro_id }}</td>
+                <td>{{ cantidad }}</td>
+                <td>
+                  <a href="{% url 'agregar_producto' libro_id=libro_id %}" class="carrito-button"><i class="fas fa-plus"></i></a>
+                  <a href="{% url 'restar_producto' libro_id=libro_id %}" class="carrito-button"><i class="fas fa-minus"></i></a>
+                  <a href="{% url 'eliminar_producto' libro_id=libro_id %}" class="carrito-button"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="carrito-footer" style="margin:5rem;">
+        <a href="{% url 'vaciar_carrito' %}" class="btn btn-success carrito-button">Vaciar Carrito</a>
+        <h2 class="carrito-total">Total: {{ total }}</h2>
+        <form action="{% url 'pagoTarjeta' %}" method="POST" class="carrito-form">
+          {% csrf_token %}
+          <input type="hidden" name="total_carrito" value="{{ total }}">
+          <input type="submit" value="Realizar pago" class="btn btn-success float-right carrito-button">
+          {% if result %}
+            <p class="carrito-result">El resultado del pago es: {{ result }}</p>
+          {% endif %}
+        </form>
+      </div>
+    {% else %}
+      <p class="carrito-empty">No hay productos en el carrito.</p>
+    {% endif %}
+  </div>
+</div>
+
+<script src="{% static 'carrito.js' %}"></script>
+

@@ -1,0 +1,91 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+{% endblock %}
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+
+    <div class="contenido">
+        <h1 class="titulo text-center">Registro de usuario</h1>
+        <div class="section container">
+            <div class="row d-flex justify-content-center" style="margin: 5rem;">
+                <div class="card" style=" width: 650px; height: 650px; padding:40px;">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            Comuna
+                            <select name="comuna_id_comuna" class="form-control">
+                                <option value="" disabled selected>-Seleccione su comuna-</option>
+                                <option value="13101">Colina</option>
+                                <option value="13102">Lampa</option>
+                                <option value="13103">Til Til</option>
+                                <option value="13104">Pirque</option>
+                                <option value="13105">Puente Alto</option>
+                                <option value="13106">San José de Maipo</option>
+                                <option value="13107">Buin</option>
+                                <option value="13108">Calera de Tango</option>
+                                <option value="13109">Paine</option>
+                                <option value="13110">San Bernardo</option>
+                                <option value="13111">Alhué</option>
+                                <option value="13112">Curacaví</option>
+                                <option value="13113">María Pinto</option>
+                                <option value="13114">Melipilla</option>
+                                <option value="13115">San Pedro</option>
+                                <option value="13116">Cerrillos</option>
+                                <option value="13117">Cerro Navia</option>
+                                <option value="13118">Conchalí</option>
+                                <option value="13119">El Bosque</option>
+                                <option value="13120">Estación Central</option>
+                                <option value="13121">Huechuraba</option>
+                                <option value="13122">Independencia</option>
+                                <option value="13123">La Cisterna</option>
+                                <option value="13124">La Granja</option>
+                                <option value="13125">La Florida</option>
+                                <option value="13126">La Pintana</option>
+                                <option value="13127">La Reina</option>
+                                <option value="13128">Las Condes</option>
+                                <option value="13129">Lo Barnechea</option>
+                                <option value="13130">Lo Espejo</option>
+                                <option value="13131">Lo Prado</option>
+                                <option value="13132">Macul</option>
+                                <option value="13133">Maipú</option> 
+                                <option value="13134">Ñuñoa</option> 
+                                <option value="13135">Pedro Aguirre Cerda</option> 
+                                <option value="13136">Peñalolén</option> 
+                                <option value="13137">Providencia</option> 
+                                <option value="13138">Pudahuel</option> 
+                                <option value="13139">Quilicura</option> 
+                                <option value="13140">Quinta Normal</option> 
+                                <option value="13141">Recoleta</option> 
+                                <option value="13142">Renca</option> 
+                                <option value="13143">San Miguel</option> 
+                                <option value="13144">San Joaquín</option> 
+                                <option value="13145">San Ramón</option> 
+                                <option value="13146">Santiago</option> 
+                                <option value="13147">Vitacura</option> 
+                                <option value="13148">El Monte</option> 
+                                <option value="13149">Isla de Maipo</option> 
+                                <option value="13150">Padre Hurtado</option> 
+                                <option value="13151">Peñaflor</option> 
+                                <option value="13152">Talagante</option> 
+                              </select>
+                            <div class="card-footer" style="margin:20px;">
+                                <a href="{% url 'home' %}" class="btn btn-success float-right">Ir al Home</a> |
+                                <input type="submit" value="Registrar" class="btn btn-success float-right">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<h1 class="titulo text-center" style="margin-top:10px">Seguimiento de tu pedido</h1>
+<div class="section container">
+    <div class="card">
+        <div class="row" style="margin: 30px;">
+            <div class="row card-panel">
+              {% csrf_token %}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.152390371357!2d-70.5960269856003!3d-33.57539238073828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d7376caccf9f%3A0x491b397483590c29!2sJuan%20de%20Dios%20Malebr%C3%A1n%206969%2C%208150215%20Puente%20Alto%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1681091733595!5m2!1ses!2scl" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                
+                <div class="row card-panel" style="margin-top:15px">
+                <div class="card border-light mb-3">
+                    <div class="card-header" style="font-size: 30px">
+                      Estado Actual:   
+                      {% for estado in estados %}
+                        <li>{{ estado }}</li>
+                      {% endfor %}
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <p>Llegada Estimada:12-04-2023</p>
+                      </blockquote>
+                    </div>
+                </div>
+                <div class="card border-light mb-3" style="margin-top: 20px;">
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <p>Inicio: Av. Nueva Providencia 2092, Providencia</p>
+                      </blockquote>
+                      <blockquote class="blockquote mb-0">
+                        <p>Destino:Juan de Diablo Malebran 6969, Puente Alto</p>
+                      </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="card-action">
+            <div class="row" style="margin-top: 20px;">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary" href="{%url 'home' %}">Volver a inicio</button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary" href="{%url 'pagoCompletado' %}">Ir a detalle de compra</button>
+                </div>
+            </div>
+          
+          </div>
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

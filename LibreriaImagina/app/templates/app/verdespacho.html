@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+
+<div class="card h-100 text-center" style="margin:5rem; padding:3rem;">
+  <h1>Consultar Despacho</h1>
+  <form method="POST" action="{% url 'verdespacho' %}">
+    {% csrf_token %}
+    <label for="id_despacho">ID Despacho:</label>
+    <input type="text" name="id_despacho" id="id_despacho">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+
+  {% if despacho %}
+    <table class="table" style="margin:10px;">
+      <thead>
+        <tr>
+          <th scope="col">Id Despacho</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Comuna ID</th>
+          <th scope="col">Envío ID</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ despacho.0 }}</td>
+          <td>{{ despacho.1 }}</td>
+          <td>{{ despacho.2 }}</td>
+          <td>{{ despacho.3 }}</td>
+          <td>{{ despacho.4 }}</td>
+          <td>{{ estado_descripcion }}</td>
+        </tr>
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+
+{% endblock %}

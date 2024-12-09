@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+    <!-- Parrafo -->
+
+  <div style="margin: 5rem;">
+    <h1 class="titulo text-center">¿Quienes Somos?</h1>
+
+    <div class="row">
+        <div class="col s12">
+          <div class="card horizontal">
+            <img src="{% static 'img/libros-img.png' %}" class="rounded float-start" alt="..." style="height: 300px;">
+            <div class="card">
+              <h4 style="padding: 20px;">
+                Bienvenido a Libreria Imagina, donde encontrarás todo lo que necesitas para tu formación académica y personal. Somos una empresa comprometida en ofrecer la mejor atención               
+                a nuestros clientes, y es por eso que ofrecemos una amplia variedad de servicios que se adaptan a tus necesidades. <br>
+                <br>
+                Además de la venta de todo tipo de libros, ofrecemos un servicio de asesoría en proyectos educativos, para estudiantes y educadores que buscan mejorar la calidad de su 
+                enseñanza y aprendizaje. Nuestro equipo de expertos te brindará apoyo en todas las etapas de tu proyecto, desde la planificación hasta la evaluación. <br>
+                <br>
+                También ofrecemos un servicio de reparación de libros, para que tus obras favoritas puedan tener una segunda oportunidad. Y si lo que necesitas es mantener tus libros 
+                en buen estado, contamos con un servicio de Mantención Preventiva y Correctiva, para que tus libros se mantengan en óptimas condiciones. <br>
+                <br>
+                En nuestra librería, podrás encontrar desde los clásicos hasta los libros más recientes, y si no encuentras lo que buscas, no dudes en preguntar a nuestro equipo de 
+                atención al cliente, quienes estarán encantados de ayudarte a encontrar lo que necesitas. 
+                <br>
+                Ven a visitarnos y déjanos ser tu aliado en tu formación y crecimiento personal.
+              </h4>
+            </div>
+            <img src="{% static 'img/libros-img.png' %}" class="rounded float-end" alt="..." style="height: 300px;">
+
+          </div>
+        </div>
+      </div>
+  </div>
+
+{% endblock %}

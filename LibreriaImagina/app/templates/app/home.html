@@ -1,0 +1,112 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<!-- carousel :o -->
+<hr>
+<div id="carouselExample" class="carousel slide" >
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="{% static 'img/libros-img.png' %}" class="img_slide" alt="">
+        </div>
+
+        <div class="carousel-item">
+            <img src="{% static 'img/asesoria-img.png' %}" class="img_slide" alt="">
+        </div>
+
+        <div class="carousel-item">
+            <img src="{% static 'img/reparacion-img-1.png' %}" class="img_slide" alt="...">
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+
+</div>
+
+<!-- end carousel -->
+
+        <div class="container section">
+            <h1 class="center-align titulo">Asesorías</h1>
+    
+            <div class="row">
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            Librería Imagina ofrece un servicio de asesoría de 
+                            proyectos educativos para estudiantes y educadores 
+                            que buscan mejorar la calidad de su enseñanza y 
+                            aprendizaje. Su equipo de expertos cuenta con amplia 
+                            experiencia en el ámbito educativo y está comprometido 
+                            en brindar apoyo en todas las etapas de un proyecto 
+                            educativo, desde la planificación hasta la evaluación. 
+                            La asesoría se enfoca en desarrollar proyectos innovadores 
+                            y personalizados, adaptados a las necesidades de cada 
+                            cliente y enfocados en mejorar los resultados académicos. 
+                            Con este servicio, la librería busca fomentar el aprendizaje 
+                            significativo y la excelencia educativa en todos sus clientes.
+                            <div class="card-action">
+                                <a href="#" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            Algunos de las asesorias de proyectos educativos
+                            que ofrecemos son: <br>
+                            1. Elaboración de planes de estudio para instituciones educativas. <br>
+                            2. Planificación y ejecución de proyectos de investigación educativa. <br>
+                            3. Formación y capacitación de docentes en metodologías de enseñanza innovadoras. <br>
+                            4. Elaboración de proyectos educativos enfocados en el medio ambiente y la sostenibilidad. <br>
+                            5. Creación de proyectos educativos que fomenten la participación y liderazgo estudiantil. <br>
+                            <br>
+                            Entre otros...
+                            <div class="card-action">
+                                <a href="#" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Escuela Monito Vidal</span> <div class="linea-division"></div> <br>
+                            "Hemos trabajado en colaboración con su equipo en varios proyectos 
+                            y hemos visto una mejora significativa en los resultados académicos 
+                            de nuestros estudiantes. La asesoría nos ha brindado apoyo en todas 
+                            las etapas de nuestros proyectos, desde la planificación hasta la evaluación. 
+                            Además, su enfoque en proyectos innovadores y personalizados 
+                            ha sido clave para el éxito de nuestros proyectos educativos. 
+                            Recomendamos encarecidamente a Libreria Imagina para aquellos que 
+                            buscan mejorar la calidad de su enseñanza y aprendizaje."
+                            <div class="card-action">
+                                <a href="#" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+            </div>
+    
+        </div>
+    
+
+{% endblock %}

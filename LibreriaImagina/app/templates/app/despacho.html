@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estiloPago.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="container" style="display: flex; justify-content: center; align-items: center;">
+
+    
+   <br>
+    <form action="{% url 'despacho' %}" method="POST" >
+        {% csrf_token %}
+       
+        <div class="inputBox">
+            <span>Lugar donde Enviaremos su pedido</span>
+            <input type="text" maxlength="9" class="card-number-input" placeholder="Ingrese Dirección"  id="direccion" name = "direccion"> 
+        </div>
+        <div class="inputBox">
+            <span>Telefono de contacto</span>
+            <input type="text" class="card-holder-input" placeholder="Ingrese Numero de contacto" id="telefono" name = "telefono">
+        </div>
+        <div class="flexbox">
+            <div class="inputBox">
+                <span>Region</span>
+                <div class="inputBox-inline">
+                    <input type="text" class="card-holder-input" placeholder="Ingrese N° de Región" id="region" name = "region">  
+                </div>
+            </div>
+            <div class="inputBox">
+                <span>Comuna</span>
+                <input type="text"  class="card-holder-input" id="comuna" name="comuna" >
+            </div>
+        </div>
+        <div>
+        <!-- <input type="hidden" name="total_carrito" value="{{ total }}"> -->
+        <input type="submit" value="Enviar" class="submit-btn" id="despachoIn" href="home.html">
+        </div>
+    </form>
+</div>    
+
+{% endblock %}

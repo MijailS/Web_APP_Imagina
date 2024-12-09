@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estiloPago.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="container" style="display: flex; justify-content: center; align-items: center;">
+
+    
+   <br>
+    <form action="{% url 'pagoTarjeta' %}" method="POST" >
+        {% csrf_token %}
+       
+        <div class="inputBox">
+            <span>número de tarjeta</span>
+            <input type="text" maxlength="9" class="card-number-input" id="nroTarjeta" name = "nroTarjeta"> 
+        </div>
+        <div class="inputBox">
+            <span>titular de tarjeta</span>
+            <input type="text" class="card-holder-input" id="titularTarjeta" name = "titularTarjeta">
+        </div>
+        <div class="flexbox">
+            <div class="inputBox">
+                <span>Fecha de vencimiento</span>
+                <div class="inputBox-inline">
+                    <input type="text" class="date-input" id="mes_vencimiento" name="mes_vencimiento" placeholder="MM">
+                    <span>/</span>
+                    <input type="text" class="date-input" id="anio_vencimiento" name="anio_vencimiento" placeholder="YY">
+                </div>
+                <input type="hidden" id="fecha_vencimiento" name="p_fecha_vencimiento">
+            </div>
+            <div class="inputBox">
+                <span>cvv</span>
+                <input type="text" maxlength="4" class="cvv-input" id="cvv" name="cvv" >
+            </div>
+        </div>
+        <input type="hidden" name="total_carrito" value="{{ total }}">
+        <input type="submit" value="ingresar" class="submit-btn" id="pagoButton" href="pago-completado.html">
+    </form>
+</div>    
+
+{% endblock %}

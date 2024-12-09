@@ -1,0 +1,67 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="row" style="margin-top:5rem">  
+    <div class="col s4">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">COMPRA FINALIZADA CORRECTAMENTE!</span> <br>
+                <span >DETALLE DE LA COMPRA:</span>
+                <span>
+                    <div class="linea-division"></div> <br>
+                    PRODUCTO: <br>
+                    NOMBRE: "El Dragon Rojo" <br> 
+                    AUTOR: Thomas Harris <br> <br>
+                    <div class="linea-division"></div> <br>
+                    VALOR: 15.569,31 clp. <br>
+                    IVA: 420,69 clp. <br>
+                    TOTAL: 15.990 clp. <br> <br>
+                    <div class="linea-division"></div> <br>
+                    CANTIDAD: 3 unidades.
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s4">
+      <div class="card">
+          <div class="card-content">
+              <span class="card-title">DETALLE DE DESPACHO</span> <br>
+              <span >DETALLE:</span>
+              <span>
+                  <div class="linea-division"></div> <br>
+                  ENVIAR A: Juan de Diablo Malebran 6969, Puente Alto <br> <br>
+                  <div class="linea-division"></div> <br>
+                  EMPRESA DE DESPACHO: DespachosYa <br>
+                  VALOR DESPACHO: 5530 CLP. <br>
+                  POR PAGAR.<br> <br>
+                  <div class="linea-division"></div> <br>
+                  CANTIDAD: 3 unidades.
+              </span>
+          </div>
+      </div>
+  </div>
+
+  <div class="col s4">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">SEGUIMIENTO PEDIDO</span> <br>
+            <span >SEGUIMIENTO:</span>
+            <span>
+                <div class="linea-division"></div> <br>
+                <br>
+                ENVIO DE : 2 a 3 dias <br> 
+                NUMERO DESPACHO: 1342JHBI123XX <br> <br>
+                <div class="linea-division"></div> <br>
+                FECHA ESTIMADA: 31 FEBRERO 2023. <br><br>
+                <a class="btn" href="{%url 'seguimiento' %}">Mapa Seguimiento</a>
+            </span>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

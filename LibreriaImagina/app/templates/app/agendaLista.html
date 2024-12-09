@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<div class="contenido" style="margin: 50px;">
+  <h1 class="titulo text-center">Tecnicos Disponibles</h1>
+  <div class="section container">
+      <div class="row">
+          <div class="card-panel">
+              <span class="seguimiento">
+              <table class="seguimiento">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Disponibilidad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Monito Vidal</td>
+                      <td>lunes a jueves - 10:30 / 20:30</td>
+                      <td><a href="{%url 'reservas' %}" class="btn btn-primary" type="submit">Agendar Hora</a></td>
+                    </tr>
+                    <tr>
+                      <td>Juan Pozo</td>
+                      <td>lunes a viernes - 09:30 / 21:30</td>
+                      <td><a href="{%url 'reservas' %}" class="btn btn-primary" type="submit">Agendar Hora</a></td>
+                    </tr>
+                    <tr>
+                      <td>Germán Garmandio</td>
+                      <td>lunes a jueves - 10:30 / 20:30</td>
+                      <td><a href="{%url 'reservas' %}" class="btn btn-primary" type="submit">Agendar Hora</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              <div class="linea-division"></div> 
+              <br> <br>
+              <div class="card-action">
+              <a href="{%url 'home' %}" class="btn btn-primary">Volver a inicio</a>
+              <a href="{%url 'agendaMenu' %}" class="btn btn-primary">Volver a menú de servicio técnico</a>
+              <a href="{%url 'historial' %}" class="btn btn-primary">Ver historial solicitudes</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

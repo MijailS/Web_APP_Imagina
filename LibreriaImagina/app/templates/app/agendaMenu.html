@@ -1,0 +1,67 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="container section" style="margin: 50px;">
+    <h1 class="titulo text-center">Servicio Técnico</h1>
+
+    <div class="row">
+        <div class="col s4">
+            <div class="card  text-center">
+                <h5 class="card-header">Reparación</h5>
+                <div class="card-body">
+                  <h6 class="card-title">
+                    Este servicio consiste en restaurar un libro dañado o deteriorado 
+                    a su estado original o lo más cercano posible a él. Esto puede 
+                    implicar la sustitución de piezas rotas, la reparación de las 
+                    hojas sueltas o la limpieza y restauración de la cubierta. 
+                    La reparación de libros es necesaria cuando el libro ha sufrido 
+                    un daño significativo que impide su uso o pone en peligro su integridad a largo plazo.
+                  </h6>
+                  <a href="{%url 'agendaLista' %}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <div class="card  text-center">
+                <h5 class="card-header">Mantención Preventiva</h5>
+                <div class="card-body">
+                  <h6 class="card-title">
+                    Este servicio se refiere a medidas que se toman para evitar
+                    problemas en los libros antes de que ocurran. Esto incluye 
+                    acciones como la limpieza regular de los libros, la protección 
+                    de los libros de la luz directa del sol y el control de la 
+                    humedad y la temperatura para evitar daños por humedad. 
+                    La mantención preventiva también puede incluir la sustitución 
+                    periódica de las cubiertas de los libros, la reencuadernación 
+                    y la digitalización de los libros para preservar su contenido.
+                  </h6>
+                  <a href="{%url 'agendaLista' %}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <div class="card  text-center">
+                <h5 class="card-header">Mantención Correctiva</h5>
+                <div class="card-body">
+                  <h6 class="card-title">
+                    En este servicio ofrecemos la corrección de problemas menores en 
+                    un libro antes de que se conviertan en daños significativos. Esto 
+                    puede implicar la reparación de una hoja suelta o la sustitución 
+                    de una pieza de la cubierta antes de que se deteriore más. La mantención 
+                    correctiva de libros se realiza con regularidad como parte del 
+                    cuidado preventivo para garantizar que los libros estén en buenas condiciones 
+                    y se puedan usar de forma segura.
+                  </h6>
+                  <a href="{%url 'agendaLista' %}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
